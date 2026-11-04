@@ -1,0 +1,100 @@
+"""Music + voice mixing (FFmpeg). Voice stays primary: music only at intro/outro and an optional ducked bed.
+
+    python3 -m sma.mix <voice.wav> <stems_dir> <out.mp3> [--bed-seconds 45] [--speech-only]
+
+Layout: theme_open (voice enters at OVERLAP before it ends) → voice, with bed_loop under the first
+--bed-seconds only, side-chain ducked by the voice → theme_close after the voice. Two-pass loudness
+normalization to -16 LUFS / -1.5 dBTP, mono 96 kbps MP3 (same as speech-only episodes).
+"""
+import argparse
+import json
+import os
+import subprocess
+
+OVERLAP = 2.5  # seconds the voice starts before the opening theme ends
+BED_DB = -20   # bed level before ducking (stem already peaks at -12 dBFS)
+# linear loudnorm cannot always honour TP on music-rich mixes (measured +1.2 dBFS): brick-wall after it,
+# at 4x oversampling-safe margin (-2 dBFS sample ceiling keeps true peak <= -1 dBTP in practice).
+# Bright pluck transients made the 96 kbps MP3 encoder overshoot true peak by ~2.7 dB; the music's
+# top octave carries no information, so it is low-passed (voice untouched).
+MUSIC_LOWPASS = 9000
+LIMITER = "aresample=176400,alimiter=limit=0.794:attack=5:release=50:level=false,aresample=44100"  # 4x oversampled ≈ true-peak
+
+
+def duration(path):
+    return float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path],
+                                capture_output=True, text=True, check=True).stdout)
+
+
+def graph(stems, voice_dur, bed_seconds):
+    open_d = duration(f"{stems}/theme_open.wav")
+    start = max(0.0, open_d - OVERLAP)
+    end = start + voice_dur
+    ms = int(start * 1000)
+    g = [
+        f"[0:a]aresample=44100,pan=stereo|c0=c0|c1=c0,adelay={ms}|{ms},apad[v]",
+        f"[1:a]lowpass=f={MUSIC_LOWPASS}[open]",
+        f"[3:a]lowpass=f={MUSIC_LOWPASS},adelay={int((end + 0.6) * 1000)}|{int((end + 0.6) * 1000)}[close]",
+    ]
+    if bed_seconds > 0:
+        g += [
+            f"[2:a]lowpass=f={MUSIC_LOWPASS},aloop=loop=-1:size=2147483647,atrim=0:{bed_seconds},afade=t=in:d=2,"
+            f"afade=t=out:st={bed_seconds - 3}:d=3,volume={BED_DB}dB,adelay={ms}|{ms}[bedraw]",
+            "[v]asplit=2[vmix][vkey]",
+            "[bedraw][vkey]sidechaincompress=threshold=0.02:ratio=8:attack=30:release=600[bed]",
+            "[open][vmix][bed][close]amix=inputs=4:normalize=0:duration=longest[mix]",
+        ]
+    else:
+        g += ["[open][v][close]amix=inputs=3:normalize=0:duration=longest[mix]"]
+    total = end + 0.6 + duration(f"{stems}/theme_close.wav")
+    # downmix to mono BEFORE loudness measurement so loudnorm/limiter see exactly what is encoded
+    g[-1] = g[-1].replace("[mix]", f",atrim=0:{total:.2f},pan=mono|c0=0.5*c0+0.5*c1[mix]")
+    return ";".join(g)
+
+
+def loudnorm_args(src_args, filt):
+    r = subprocess.run(["ffmpeg", "-nostdin", "-hide_banner", *src_args, "-filter_complex",
+                        filt + ";[mix]loudnorm=I=-16:TP=-1.5:LRA=11:print_format=json[o]", "-map", "[o]",
+                        "-f", "null", "-"], capture_output=True, text=True)
+    m = json.loads(r.stderr[r.stderr.rindex("{"):r.stderr.rindex("}") + 1])
+    return (f"loudnorm=I=-16:TP=-1.5:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}:"
+            f"measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true")
+
+
+def mix(voice, stems, out, bed_seconds=45.0, speech_only=False, title="", comment=""):
+    tags = ["-metadata", f"title={title}", "-metadata", "artist=Science Media Academy",
+            "-metadata", f"comment={comment}"]
+    if speech_only:
+        src = ["-i", voice]
+        filt = "[0:a]aresample=44100,anull[mix]"
+    else:
+        src = ["-i", voice, "-i", f"{stems}/theme_open.wav", "-i", f"{stems}/bed_loop.wav",
+               "-i", f"{stems}/theme_close.wav"]
+        filt = graph(stems, duration(voice), bed_seconds)
+    ln = loudnorm_args(src, filt)
+    # Two explicit steps: a single-command mix+encode let the encoder's implicit downmix/format conversion run
+    # after the limiter and measured +0.7 dBTP; mixing to 16-bit mono WAV first keeps the limiter last.
+    tmp = out + ".mix.wav"
+    subprocess.run(["ffmpeg", "-nostdin", "-y", "-v", "error", *src, "-filter_complex", f"{filt};[mix]{ln},{LIMITER}[o]", "-map", "[o]", "-c:a", "pcm_s16le", tmp], check=True)
+    subprocess.run(["ffmpeg", "-nostdin", "-y", "-v", "error", "-i", tmp, "-c:a", "libmp3lame", "-b:a", "96k",
+                    "-id3v2_version", "3", *tags, out], check=True)
+    os.remove(tmp)
+    return out
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("voice")
+    ap.add_argument("stems")
+    ap.add_argument("out")
+    ap.add_argument("--bed-seconds", type=float, default=45.0)
+    ap.add_argument("--speech-only", action="store_true")
+    ap.add_argument("--title", default="")
+    ap.add_argument("--comment", default="Science Media Academy music A/B proof. Original music generated by "
+                                         "tools/compose_theme.py. Not published.")
+    a = ap.parse_args()
+    print(mix(a.voice, a.stems, a.out, a.bed_seconds, a.speech_only, a.title, a.comment))
+
+
+if __name__ == "__main__":
+    main()

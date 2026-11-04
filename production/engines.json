@@ -1,0 +1,54 @@
+{
+  "piper-vais1000": {
+    "python": ".venv/bin/python",
+    "runner": "sma.runners.piper_runner",
+    "params": {
+      "model_dir": "~/.cache/sma-models/vits-piper-vi_VN-vais1000-medium",
+      "threads": 4
+    },
+    "license": "Model: Piper VITS (MIT code); dataset VAIS-1000, CC BY 4.0 per MODEL_CARD"
+  },
+  "vieneu-nano": {
+    "python": ".venv-vieneu/bin/python",
+    "runner": "sma.runners.vieneu_runner",
+    "params": {
+      "mode": "v3nano",
+      "seed": 7,
+      "voice": "Minh Quân"
+    },
+    "license": "pnnbao-ump/VieNeu-TTS-v3-Nano, Apache-2.0 (preview release); SDK watermark kept on"
+  },
+  "vieneu-turbo-int8": {
+    "python": ".venv-vieneu/bin/python",
+    "runner": "sma.runners.vieneu_runner",
+    "params": {
+      "mode": "v3turbo",
+      "precision": "int8",
+      "seed": 7,
+      "voice": "Hải Đăng"
+    },
+    "license": "pnnbao-ump/VieNeu-TTS-v3-Turbo, Apache-2.0 incl. preset voices; SDK watermark kept on"
+  },
+  "vieneu-turbo-fp32": {
+    "python": ".venv-vieneu/bin/python",
+    "runner": "sma.runners.vieneu_runner",
+    "params": {
+      "mode": "v3turbo",
+      "precision": "fp32",
+      "seed": 7,
+      "onnx_dir": "~/.cache/sma-models/vieneu-turbo-fp32-onnx",
+      "voice": "Hải Đăng"
+    },
+    "license": "pnnbao-ump/VieNeu-TTS-v3-Turbo, Apache-2.0 incl. preset voices; SDK watermark kept on",
+    "setup": "cp -L <hf-cache-snapshot>/onnx_update/* ~/.cache/sma-models/vieneu-turbo-fp32-onnx/ (see reports/TTS_BENCHMARK.md)"
+  },
+  "_selection": {
+    "primary": "vieneu-turbo-fp32",
+    "fallback": "vieneu-nano",
+    "emergency": "piper-vais1000",
+    "rejected": {
+      "vieneu-turbo-int8": "RTF 9.6 on this ARM CPU (no VNNI)"
+    },
+    "basis": "reports/TTS_BENCHMARK.md"
+  }
+}

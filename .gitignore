@@ -1,0 +1,14 @@
+# Virtual environments and caches (never commit)
+.venv/
+.venv-*/
+__pycache__/
+*.pyc
+cache/
+# Generated audio, model weights, build artifacts
+*.wav
+*.mp3
+*.onnx
+*.gguf
+*.safetensors
+*.part*
+graphify-out/

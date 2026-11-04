@@ -1,0 +1,90 @@
+[
+ {
+  "id": "p1_raw",
+  "text": "Ánh sáng từ Mặt Trời cần khoảng tám phút hai mươi giây để đến Trái Đất. Con số này không đến từ việc theo dõi một tia sáng, mà được tính từ hai đại lượng đã biết rất chính xác: khoảng cách trung bình giữa Trái Đất và Mặt Trời, gần 150 triệu km, và tốc độ ánh sáng trong chân không, gần 300.000 km/s. Newton từng hình dung lực hấp dẫn tác động tức thời. Einstein thì cho rằng không tín hiệu nào truyền nhanh hơn ánh sáng, kể cả những thay đổi của không-thời gian. Ở một thang đo rất khác, Schrödinger mô tả electron bằng hàm sóng, còn năng lượng trong phản ứng hạt nhân thường tính bằng MeV. Phương trình E=mc^2 cho biết khối lượng và năng lượng có thể quy đổi cho nhau. Quanh một hố đen có một ranh giới gọi là chân trời sự kiện, nơi ngay cả ánh sáng cũng không thoát ra được. Ngay cả DNA trong tế bào chúng ta cũng được tạo nên từ những nguyên tử tuân theo cùng các định luật ấy."
+ },
+ {
+  "id": "p2_norm",
+  "text": "Ánh sáng từ Mặt Trời cần khoảng tám phút hai mươi giây để đến Trái Đất. Con số này không đến từ việc theo dõi một tia sáng, mà được tính từ hai đại lượng đã biết rất chính xác: khoảng cách trung bình giữa Trái Đất và Mặt Trời, gần một trăm năm mươi triệu ki-lô-mét, và tốc độ ánh sáng trong chân không, gần ba trăm nghìn ki-lô-mét trên giây. Niu-tơn từng hình dung lực hấp dẫn tác động tức thời. Anh-xtanh thì cho rằng không tín hiệu nào truyền nhanh hơn ánh sáng, kể cả những thay đổi của không thời gian. Ở một thang đo rất khác, Srô-đinh-gơ mô tả e-léc-trôn bằng hàm sóng, còn năng lượng trong phản ứng hạt nhân thường tính bằng mê-ga e-léc-trôn vôn. Phương trình e bằng em nhân xê bình phương cho biết khối lượng và năng lượng có thể quy đổi cho nhau. Quanh một hố đen có một ranh giới gọi là chân trời sự kiện, nơi ngay cả ánh sáng cũng không thoát ra được. Ngay cả đê-en-a trong tế bào chúng ta cũng được tạo nên từ những nguyên tử tuân theo cùng các định luật ấy."
+ },
+ {
+  "id": "t_einstein_raw",
+  "text": "Từ tiếp theo là Einstein. Xin nhắc lại: Einstein."
+ },
+ {
+  "id": "t_einstein_norm",
+  "text": "Từ tiếp theo là Anh-xtanh. Xin nhắc lại: Anh-xtanh."
+ },
+ {
+  "id": "t_newton_raw",
+  "text": "Từ tiếp theo là Newton. Xin nhắc lại: Newton."
+ },
+ {
+  "id": "t_newton_norm",
+  "text": "Từ tiếp theo là Niu-tơn. Xin nhắc lại: Niu-tơn."
+ },
+ {
+  "id": "t_schrodinger_raw",
+  "text": "Từ tiếp theo là Schrödinger. Xin nhắc lại: Schrödinger."
+ },
+ {
+  "id": "t_schrodinger_norm",
+  "text": "Từ tiếp theo là Srô-đinh-gơ. Xin nhắc lại: Srô-đinh-gơ."
+ },
+ {
+  "id": "t_dna_raw",
+  "text": "Từ tiếp theo là DNA. Xin nhắc lại: DNA."
+ },
+ {
+  "id": "t_dna_norm",
+  "text": "Từ tiếp theo là đê-en-a. Xin nhắc lại: đê-en-a."
+ },
+ {
+  "id": "t_electron_raw",
+  "text": "Từ tiếp theo là electron. Xin nhắc lại: electron."
+ },
+ {
+  "id": "t_electron_norm",
+  "text": "Từ tiếp theo là e-léc-trôn. Xin nhắc lại: e-léc-trôn."
+ },
+ {
+  "id": "t_mev_raw",
+  "text": "Từ tiếp theo là MeV. Xin nhắc lại: MeV."
+ },
+ {
+  "id": "t_mev_norm",
+  "text": "Từ tiếp theo là mê-ga e-léc-trôn vôn. Xin nhắc lại: mê-ga e-léc-trôn vôn."
+ },
+ {
+  "id": "t_emc2_raw",
+  "text": "Từ tiếp theo là E=mc^2. Xin nhắc lại: E=mc^2."
+ },
+ {
+  "id": "t_emc2_norm",
+  "text": "Từ tiếp theo là e bằng em nhân xê bình phương. Xin nhắc lại: e bằng em nhân xê bình phương."
+ },
+ {
+  "id": "t_kms_raw",
+  "text": "Từ tiếp theo là 300.000 km/s. Xin nhắc lại: 300.000 km/s."
+ },
+ {
+  "id": "t_kms_norm",
+  "text": "Từ tiếp theo là ba trăm nghìn ki-lô-mét trên giây. Xin nhắc lại: ba trăm nghìn ki-lô-mét trên giây."
+ },
+ {
+  "id": "t_spacetime_raw",
+  "text": "Từ tiếp theo là không-thời gian. Xin nhắc lại: không-thời gian."
+ },
+ {
+  "id": "t_spacetime_norm",
+  "text": "Từ tiếp theo là không thời gian. Xin nhắc lại: không thời gian."
+ },
+ {
+  "id": "t_horizon_raw",
+  "text": "Từ tiếp theo là chân trời sự kiện. Xin nhắc lại: chân trời sự kiện."
+ },
+ {
+  "id": "t_horizon_norm",
+  "text": "Từ tiếp theo là chân trời sự kiện. Xin nhắc lại: chân trời sự kiện."
+ }
+]

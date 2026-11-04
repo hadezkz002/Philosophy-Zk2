@@ -1,0 +1,229 @@
+{
+ "schema_version": "1.0",
+ "levels": {
+  "L0": "Absolute Beginner",
+  "L1": "Foundations",
+  "L2": "Core Mechanisms",
+  "L3": "Advanced Concepts",
+  "L4": "Research Literacy",
+  "L5": "Independent Exploration"
+ },
+ "domains": {
+  "PHIL": "Philosophy"
+ },
+ "topics": [
+  {
+   "topic_id": "PHIL-L0-01",
+   "domain": "PHIL",
+   "level": "L0",
+   "title_vi": "Triết học là gì: hỏi đến cùng và biết giới hạn hiểu biết của mình",
+   "prerequisites": [],
+   "learning_objectives": [
+    "Phân biệt điều một văn bản nói với câu trích phổ biến về nó",
+    "Giải thích khiêm tốn trí tuệ qua ba truyền thống (Hy Lạp, Trung Hoa, Phật giáo)"
+   ],
+   "key_concepts": [
+    "câu hỏi triết học",
+    "nguyên tác và bản dịch",
+    "khiêm tốn trí tuệ",
+    "trích dẫn sai"
+   ],
+   "common_misconceptions": [
+    "Triết học là chuyện riêng của phương Tây",
+    "Biết mình không biết nghĩa là không được có quan điểm"
+   ],
+   "references": [
+    "https://plato.stanford.edu/entries/socrates/",
+    "https://plato.stanford.edu/entries/confucius/",
+    "https://suttacentral.net/an3.65"
+   ],
+   "related_episodes": [
+    "P001"
+   ],
+   "assessment_questions": [
+    "Theo Biện hộ của Plato, Socrates hơn những người ông đi hỏi ở điểm nào, và câu phổ biến 'tôi biết là tôi không biết gì' khác ở đâu?",
+    "Luận Ngữ 2.17 đòi hỏi hai việc gì, và vì sao thiếu một trong hai thì không còn là biết?"
+   ],
+   "review_status": "DRAFT",
+   "external_prerequisites": [
+    "HIST-L0-01"
+   ]
+  },
+  {
+   "topic_id": "PHIL-L1-01",
+   "domain": "PHIL",
+   "level": "L1",
+   "title_vi": "Lập luận: tiền đề, kết luận, hợp lệ và đúng",
+   "prerequisites": [
+    "PHIL-L0-01"
+   ],
+   "learning_objectives": [
+    "Tách một đoạn văn thành tiền đề và kết luận",
+    "Phân biệt lập luận hợp lệ với lập luận có kết luận đúng"
+   ],
+   "key_concepts": [
+    "tiền đề",
+    "kết luận",
+    "hợp lệ",
+    "vững chắc",
+    "ngụy biện"
+   ],
+   "common_misconceptions": [
+    "Kết luận đúng thì lập luận chắc chắn tốt"
+   ],
+   "references": [
+    "https://plato.stanford.edu/entries/logic-classical/",
+    "https://plato.stanford.edu/entries/logic-india/"
+   ],
+   "related_episodes": [],
+   "assessment_questions": [
+    "Cho một ví dụ lập luận hợp lệ nhưng kết luận sai, và giải thích vì sao điều đó có thể xảy ra.",
+    "Vì sao ngộ nhận 'kết luận đúng thì lập luận chắc chắn tốt' là sai?"
+   ],
+   "review_status": "DRAFT",
+   "external_prerequisites": [
+    "MATH-L0-01"
+   ]
+  },
+  {
+   "topic_id": "PHIL-L2-01",
+   "domain": "PHIL",
+   "level": "L2",
+   "title_vi": "Biết, tin và biện minh (nhận thức luận)",
+   "prerequisites": [
+    "PHIL-L1-01"
+   ],
+   "learning_objectives": [
+    "Giải thích định nghĩa 'niềm tin đúng có biện minh' và một phản ví dụ kiểu Gettier",
+    "So sánh các nguồn tri thức (pramāṇa) trong Nyāya với thảo luận châu Âu"
+   ],
+   "key_concepts": [
+    "niềm tin",
+    "biện minh",
+    "hoài nghi",
+    "quy nạp",
+    "lời chứng"
+   ],
+   "common_misconceptions": [
+    "Biết chỉ là tin rất mạnh"
+   ],
+   "references": [
+    "https://plato.stanford.edu/entries/knowledge-analysis/",
+    "https://plato.stanford.edu/entries/skepticism/"
+   ],
+   "related_episodes": [],
+   "assessment_questions": [
+    "Kể một tình huống trong đó một người có niềm tin đúng và có lý do, nhưng ta vẫn ngần ngại nói họ 'biết'.",
+    "Vì sao ngộ nhận 'biết chỉ là tin rất mạnh' là sai?"
+   ],
+   "review_status": "DRAFT",
+   "external_prerequisites": []
+  },
+  {
+   "topic_id": "PHIL-L3-01",
+   "domain": "PHIL",
+   "level": "L3",
+   "title_vi": "Tâm trí, bản thân và ý chí tự do",
+   "prerequisites": [
+    "PHIL-L2-01"
+   ],
+   "learning_objectives": [
+    "Trình bày ba lập trường về quan hệ tâm–thân",
+    "So sánh quan niệm vô ngã của Phật giáo với các thuyết căn tính cá nhân của Locke và Parfit"
+   ],
+   "key_concepts": [
+    "nhị nguyên",
+    "vật lý luận",
+    "vô ngã",
+    "căn tính cá nhân",
+    "tất định luận"
+   ],
+   "common_misconceptions": [
+    "Khoa học thần kinh đã giải quyết xong câu hỏi ý chí tự do"
+   ],
+   "references": [
+    "https://plato.stanford.edu/entries/personal-identity/",
+    "https://plato.stanford.edu/entries/freewill/"
+   ],
+   "related_episodes": [],
+   "assessment_questions": [
+    "Tái dựng một lập luận cho rằng ý chí tự do không tương thích với tất định luận, rồi nêu một phản biện.",
+    "Vì sao ngộ nhận 'khoa học thần kinh đã giải quyết xong câu hỏi ý chí tự do' là sai?"
+   ],
+   "review_status": "DRAFT",
+   "external_prerequisites": [
+    "BIO-L1-01"
+   ]
+  },
+  {
+   "topic_id": "PHIL-L4-01",
+   "domain": "PHIL",
+   "level": "L4",
+   "title_vi": "Các học thuyết đạo đức và cách đọc một tranh luận học thuật",
+   "prerequisites": [
+    "PHIL-L3-01"
+   ],
+   "learning_objectives": [
+    "So sánh đạo đức đức hạnh, hệ quả luận và nghĩa vụ luận qua ví dụ cụ thể",
+    "Đọc một mục từ SEP và tách luận điểm, phản biện, câu trả lời"
+   ],
+   "key_concepts": [
+    "đức hạnh",
+    "hệ quả luận",
+    "nghĩa vụ luận",
+    "triết học thực nghiệm",
+    "phản biện"
+   ],
+   "common_misconceptions": [
+    "Đạo đức chỉ là ý kiến cá nhân nên không thể lập luận"
+   ],
+   "references": [
+    "https://plato.stanford.edu/entries/ethics-virtue/",
+    "https://plato.stanford.edu/entries/consequentialism/",
+    "https://plato.stanford.edu/entries/kant-moral/"
+   ],
+   "related_episodes": [],
+   "assessment_questions": [
+    "Áp dụng hai học thuyết đạo đức vào cùng một tình huống và chỉ ra chỗ chúng cho kết quả khác nhau.",
+    "Vì sao ngộ nhận 'đạo đức chỉ là ý kiến cá nhân nên không thể lập luận' là sai?"
+   ],
+   "review_status": "DRAFT",
+   "external_prerequisites": []
+  },
+  {
+   "topic_id": "PHIL-L5-01",
+   "domain": "PHIL",
+   "level": "L5",
+   "title_vi": "Tự đọc nguyên tác, tái dựng và phản biện một lập luận",
+   "prerequisites": [
+    "PHIL-L4-01"
+   ],
+   "learning_objectives": [
+    "Chọn một đoạn nguyên tác, ghi vị trí chuẩn và so hai bản dịch",
+    "Viết bản tái dựng lập luận và phản biện mạnh nhất kèm nguồn"
+   ],
+   "key_concepts": [
+    "vị trí chuẩn (Stephanus, chương.tiết)",
+    "đối chiếu bản dịch",
+    "dựng mạnh (steelman)",
+    "nguồn thứ cấp"
+   ],
+   "common_misconceptions": [
+    "Một bản dịch là đủ để hiểu nguyên tác"
+   ],
+   "references": [
+    "https://www.perseus.tufts.edu/",
+    "https://ctext.org/",
+    "https://philpapers.org/"
+   ],
+   "related_episodes": [],
+   "assessment_questions": [
+    "Chọn một câu trích nổi tiếng và kiểm tra xem nguyên tác có nói đúng như vậy không; trình bày bằng chứng.",
+    "Vì sao ngộ nhận 'một bản dịch là đủ để hiểu nguyên tác' là sai?"
+   ],
+   "review_status": "DRAFT",
+   "external_prerequisites": []
+  }
+ ],
+ "note": "Bản DRAFT, tách từ curriculum.json của Science Media Academy (commit c79937b). external_prerequisites là mã chủ đề trong chương trình của dự án đó (HIST, MATH, BIO), không kiểm tra trong repo này. Từng chủ đề phải qua claim ledger và review khi sản xuất tập tương ứng."
+}

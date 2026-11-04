@@ -1,0 +1,45 @@
+{
+  "episode_id": "P001",
+  "series": "Hành Trình Tư Tưởng (tên tạm)",
+  "season": 1,
+  "title": "Biết rằng mình không biết",
+  "language": "vi",
+  "domain": "PHIL",
+  "topic_ids": [
+    "PHIL-L0-01"
+  ],
+  "level": "L0",
+  "status": "PLAN / RESEARCH_PENDING",
+  "audio": {
+    "filename": "SMA_P001_Biet-rang-minh-khong-biet_speech-only.mp3",
+    "target_duration_s": [
+      1200,
+      7200
+    ],
+    "comment": "Science Media Academy P001 (Hanh Trinh Tu Tuong, tap 1). Giong doc tong hop AI (TTS). Chua phat hanh cong khai.",
+    "engine": "vieneu-turbo-fp32 (VieNeu-TTS v3 Turbo, seed 7, watermark on; render PyTorch/CUDA tren Colab T4)",
+    "voice": "Hải Đăng (preset, Apache-2.0)",
+    "human_listening": "PENDING (user)"
+  },
+  "rights": {
+    "text": "Văn bản gốc của dự án; trích nguyên tác từ bản dịch phạm vi công cộng hoặc trích ngắn có ghi công",
+    "voice": "Preset của nhà phát hành, không clone giọng người thật"
+  },
+  "reviews": [],
+  "script": {
+    "path": "episodes/P001/script.md",
+    "version": "0.0"
+  },
+  "claims": {
+    "path": "episodes/P001/claims.csv",
+    "count": 0,
+    "approved": 0
+  },
+  "sources": {
+    "path": "episodes/P001/sources.md",
+    "count": 0
+  },
+  "research_contributors": [
+    "Research plan by Claude — sources not yet cached (network blocked in cloud session 2026-11-04)"
+  ]
+}

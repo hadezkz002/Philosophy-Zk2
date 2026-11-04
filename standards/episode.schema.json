@@ -1,0 +1,206 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/hadezkz002/science-media-academy/standards/episode.schema.json",
+  "title": "Canonical episode record",
+  "description": "One record per episode. Audio, short video, long video, website lesson, quiz and AI tutor all derive from this record plus the files it points to (script.md, claims.csv, sources.md, pronunciation.json). Never fork content into a second database.",
+  "type": "object",
+  "required": [
+    "episode_id",
+    "title",
+    "language",
+    "domain",
+    "topic_ids",
+    "level",
+    "status",
+    "script",
+    "claims",
+    "sources",
+    "learning_objectives",
+    "assessment",
+    "audio",
+    "rights",
+    "revision_history"
+  ],
+  "properties": {
+    "episode_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "language": {
+      "const": "vi"
+    },
+    "domain": {
+      "enum": [
+        "PHYS",
+        "CHEM",
+        "BIO",
+        "AIE",
+        "MATH",
+        "HIST",
+        "PHIL"
+      ]
+    },
+    "topic_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "curriculum/curriculum.json topic_id values"
+    },
+    "level": {
+      "enum": [
+        "L0",
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5"
+      ]
+    },
+    "status": {
+      "enum": [
+        "DRAFT",
+        "IN_REVIEW",
+        "APPROVED_FOR_AUDIO",
+        "AUDIO_QA_PASSED",
+        "HUMAN_APPROVED",
+        "PUBLISHED",
+        "WITHDRAWN"
+      ]
+    },
+    "script": {
+      "type": "object",
+      "required": [
+        "path",
+        "version",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        }
+      }
+    },
+    "claims": {
+      "type": "object",
+      "required": [
+        "path",
+        "count",
+        "status_counts"
+      ]
+    },
+    "sources": {
+      "type": "object",
+      "required": [
+        "path",
+        "count"
+      ]
+    },
+    "learning_objectives": {
+      "type": [
+        "array",
+        "object"
+      ],
+      "description": "list, or {core: [...], extension_qualitative: [...]}"
+    },
+    "assessment": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "question",
+          "answer"
+        ]
+      }
+    },
+    "show_notes": {
+      "type": "object",
+      "description": "Exact values, caveats and material cut from narration; reused by web lesson"
+    },
+    "audio": {
+      "type": "object",
+      "required": [
+        "filename",
+        "comment"
+      ],
+      "properties": {
+        "filename": {
+          "type": "string"
+        },
+        "comment": {
+          "type": "string"
+        },
+        "engine": {
+          "type": "string"
+        },
+        "voice": {
+          "type": "string"
+        },
+        "duration_s": {
+          "type": "number"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "android_path": {
+          "type": "string"
+        },
+        "qa_report": {
+          "type": "string"
+        }
+      }
+    },
+    "video": {
+      "type": "object",
+      "description": "Phase 2: storyboard_path, shorts[], long_form — derived from script beats"
+    },
+    "web": {
+      "type": "object",
+      "description": "Phase 3: slug, transcript_path, glossary_terms[], interactive[]"
+    },
+    "tutor": {
+      "type": "object",
+      "description": "Phase 4: retrieval_chunks_path (approved text only), refusal_policy"
+    },
+    "rights": {
+      "type": "object",
+      "required": [
+        "text",
+        "voice",
+        "music"
+      ]
+    },
+    "reviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "role",
+          "round",
+          "verdict",
+          "file"
+        ]
+      }
+    },
+    "revision_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "date",
+          "version",
+          "change"
+        ]
+      }
+    }
+  }
+}
